@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ComicSwapv2.Models.Comic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    function GetOwner(obj)
+    {
+        $.ajax({
+            url: '/Owners/GetOwnerContactInfo',
+            type: 'POST',
+            datatype: 'json',
+            data: { id: obj },
+            success: function(ret)
+            {
+                //alert(id) //did nothing
+                //alert(obj) //returned id#
+                alert(ret) //return json
+            },
+            error: function(obj)
+            {
+                alert("Failure to retrieve owner information")
+            }
+        });
+    }
+</script>
+
+<h2>Comics For Sale</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Condition)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Issue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Condition)
+        </td>
+        <td>
+            @* @Html.ActionLink("Edit", "Edit", new { id=item.ComicID }) | *@
+            @* @Html.ActionLink("Delete", "Delete", new { id = item.ComicID }) | *@
+            @Html.ActionLink("Details", "Details", new { id = item.ComicID }) |
+            <a href="#" onclick="GetOwner(@item.OwnerID)">Owner Info</a>
+        </td>
+    </tr>
+}
+
+</table>

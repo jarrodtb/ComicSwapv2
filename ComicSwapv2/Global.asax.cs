@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
 
 namespace ComicSwapv2
 {
@@ -16,6 +17,8 @@ namespace ComicSwapv2
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ComicSwapv2.Models.ComicSwapv2Context>());
+
         }
     }
 }
