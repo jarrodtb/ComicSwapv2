@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicSwapv2", "ComicSwapv2\ComicSwapv2.csproj", "{B111C10C-D7B8-424A-8FFE-C17BE6C65BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicSwapv2.Tests", "ComicSwapv2.Tests\ComicSwapv2.Tests.csproj", "{AC1D68DD-ED9F-48AC-8139-E398B9F0312D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B111C10C-D7B8-424A-8FFE-C17BE6C65BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B111C10C-D7B8-424A-8FFE-C17BE6C65BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B111C10C-D7B8-424A-8FFE-C17BE6C65BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B111C10C-D7B8-424A-8FFE-C17BE6C65BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1D68DD-ED9F-48AC-8139-E398B9F0312D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1D68DD-ED9F-48AC-8139-E398B9F0312D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1D68DD-ED9F-48AC-8139-E398B9F0312D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1D68DD-ED9F-48AC-8139-E398B9F0312D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
