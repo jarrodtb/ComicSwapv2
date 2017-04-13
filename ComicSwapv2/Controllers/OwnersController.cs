@@ -10,6 +10,7 @@ using ComicSwapv2.Models;
 
 namespace ComicSwapv2.Controllers
 {
+    [Authorize]
     public class OwnersController : Controller
     {
         private ComicSwapv2Context db = new ComicSwapv2Context();
@@ -42,6 +43,7 @@ namespace ComicSwapv2.Controllers
         }
 
         // GET: Owners/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();

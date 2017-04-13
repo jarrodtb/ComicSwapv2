@@ -10,6 +10,7 @@ using ComicSwapv2.Models;
 
 namespace ComicSwapv2.Controllers
 {
+    [Authorize]
     public class ComicsController : Controller
     {
         private ComicSwapv2Context db = new ComicSwapv2Context();
