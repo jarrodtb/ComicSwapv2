@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ComicSwapv2;
 using ComicSwapv2.Controllers;
+using ComicSwapv2;
 
 namespace ComicSwapv2.Tests.Controllers
 {
@@ -49,6 +50,22 @@ namespace ComicSwapv2.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void GreaterThanTest()
+        {
+            int small = 1;
+            int large = 100;
+            bool result = ComicSwapv2.Logic.Comparator.GreaterThan(large, small);
+            bool answer = true;
+            Assert.AreEqual(answer, result);
+
+            
+            result = ComicSwapv2.Logic.Comparator.GreaterThan(small, large);
+            answer = false;
+            Assert.AreEqual(answer, result);
+            
         }
     }
 }

@@ -1,10 +1,13 @@
-﻿@model ComicSwapv2.Models.Owner
+﻿@using Microsoft.AspNet.Identity 
+
+@model ComicSwapv2.Models.Owner
 
 @{
     ViewBag.Title = "Details";
 }
-
+<h3>Logged in as @User.Identity.GetUserName()</h3>
 <h2>Details</h2>
+
 
 <div>
     <h4>Owner</h4>
