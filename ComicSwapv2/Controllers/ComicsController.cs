@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ComicSwapv2.Models;
+using System.IO;
 
 namespace ComicSwapv2.Controllers
 {
@@ -52,6 +53,34 @@ namespace ComicSwapv2.Controllers
         {
             if (ModelState.IsValid)
             {
+                var path = Server.MapPath("~/Images/");
+                Directory.CreateDirectory(path); 
+
+                if (Request.Files.Count > 0)
+                {
+                    var img = Request.Files[0];
+                    if (img != null && img.ContentLength > 0)
+                    {
+                        var imgName = Path.GetFileName(img.FileName);
+                        path = Path.Combine(path, imgName);
+                        img.SaveAs(path);
+                    }
+                }
+                if(path == Server.MapPath("~/Images/"))
+                {
+                    path = Path.Combine(path, "default.png");
+                }
+
+                /*
+                if (file != null)
+                {
+                    file.SaveAs(HttpContext.Server.MapPath("~/Images/" + file.FileName));
+                    comic.ImagePath = file.FileName;
+                }
+                else comic.ImagePath = "empty";
+                */
+
+                comic.ImagePath = path;
                 db.Comics.Add(comic);
                 db.SaveChanges();
                 return RedirectToAction("Index");

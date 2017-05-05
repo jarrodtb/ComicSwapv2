@@ -34,6 +34,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
@@ -50,6 +53,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            <img src="@Url.Content(item.ImagePath)" alt="NO_IMAGE_SUPPLIED" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>

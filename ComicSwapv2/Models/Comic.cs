@@ -30,5 +30,8 @@ namespace ComicSwapv2.Models
 
         [Required]
         public Condition Condition { get; set; }
+
+        [Display(Name = "Image")]
+        public string ImagePath { get; set; }
     }
 }
