@@ -43,7 +43,7 @@ namespace ComicSwapv2.Controllers
         }
 
         // GET: Owners/Create
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Create()
         {
             return View();

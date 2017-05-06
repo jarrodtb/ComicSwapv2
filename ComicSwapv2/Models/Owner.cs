@@ -9,7 +9,7 @@ namespace ComicSwapv2.Models
     public class Owner
     {
         [Key]
-        [Display(Name = "ID")]
+        [Display(Name = "Owner ID")]
         public int OwnerID { get; set; }
 
         [Required]
