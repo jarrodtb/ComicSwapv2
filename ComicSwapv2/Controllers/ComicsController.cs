@@ -17,9 +17,41 @@ namespace ComicSwapv2.Controllers
         private ComicSwapv2Context db = new ComicSwapv2Context();
 
         // GET: Comics
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
-            return View(db.Comics.ToList());
+            ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewData["IssueSortParam"] = sortOrder == "Issue" ? "issue_desc" : "Issue";
+            ViewData["PriceSortParam"] = sortOrder == "Price" ? "price_desc" : "Price";
+            ViewData["ConditionSortParam"] = sortOrder == "Condition" ? "conditione_desc" : "Condition";
+            var comics = from c in db.Comics select c;
+            switch(sortOrder)
+            {
+                case "title_desc":
+                    comics = comics.OrderByDescending(c => c.Title);
+                    break;
+                case "Issue":
+                    comics = comics.OrderBy(c => c.Issue);
+                    break;
+                case "issue_desc":
+                    comics = comics.OrderByDescending(c => c.Issue);
+                    break;
+                case "Price":
+                    comics = comics.OrderBy(c => c.Price);
+                    break;
+                case "price_desc":
+                    comics = comics.OrderByDescending(c => c.Price);
+                    break;
+                case "Condition":
+                    comics = comics.OrderBy(c => c.Condition);
+                    break;
+                case "condition_desc":
+                    comics = comics.OrderByDescending(c => c.Condition);
+                    break;
+                default:
+                    comics = comics.OrderBy(c => c.Title);
+                    break;
+            }
+            return View(comics.ToList());
         }
 
         // GET: Comics/Details/5

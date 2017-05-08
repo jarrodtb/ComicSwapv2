@@ -37,16 +37,16 @@
             @Html.DisplayNameFor(model => model.ImagePath)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Title).ToHtmlString(),"Index", new { sortOrder = ViewData["TitleSortParam"]})
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Issue)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Issue).ToHtmlString(), "Index", new { sortOrder = ViewData["IssueSortParam"] })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Price).ToHtmlString(), "Index", new { sortOrder = ViewData["PriceSortParam"] })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Condition)
+            @Html.ActionLink(Html.DisplayNameFor(model => model.Condition).ToHtmlString(), "Index", new { sortOrder = ViewData["ConditionSortParam"] })
         </th>
         <th></th>
     </tr>
