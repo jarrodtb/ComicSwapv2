@@ -17,13 +17,21 @@ namespace ComicSwapv2.Controllers
         private ComicSwapv2Context db = new ComicSwapv2Context();
 
         // GET: Comics
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index(string sortOrder, string searchString)
         {
             ViewData["TitleSortParam"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewData["IssueSortParam"] = sortOrder == "Issue" ? "issue_desc" : "Issue";
             ViewData["PriceSortParam"] = sortOrder == "Price" ? "price_desc" : "Price";
             ViewData["ConditionSortParam"] = sortOrder == "Condition" ? "conditione_desc" : "Condition";
+            ViewData["CurrentFilter"] = searchString;
+
             var comics = from c in db.Comics select c;
+
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                comics = comics.Where(c => c.Title.Contains(searchString));
+            }
+
             switch(sortOrder)
             {
                 case "title_desc":
